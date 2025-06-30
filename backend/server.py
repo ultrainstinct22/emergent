@@ -40,7 +40,7 @@ UPLOAD_DIR = Path("/app/uploads")
 UPLOAD_DIR.mkdir(exist_ok=True)
 
 # Google API key
-GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
+GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY', 'AIzaSyAs-YV7aY6FeT-u9jCJpk3vtt1qrVasfnU')
 logger.info(f"Google API Key: {GOOGLE_API_KEY}")
 
 class ChatMessage(BaseModel):
