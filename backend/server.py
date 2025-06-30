@@ -127,7 +127,7 @@ async def analyze_video(video_id: str):
             api_key=GOOGLE_API_KEY,
             session_id=f"analysis-{video_id}",
             system_message="You are a helpful AI assistant that analyzes videos. Provide detailed, structured analysis of video content including key topics, speakers, main points, and timestamps when possible."
-        ).with_model("gemini", "gemini-2.5-pro-preview-05-06")
+        ).with_model("gemini", "gemini-2.5-pro")
         
         # Create video file reference
         video_file = FileContentWithMimeType(
