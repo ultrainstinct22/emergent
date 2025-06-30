@@ -8,7 +8,7 @@ api_key = "AIzaSyAs-YV7aY6FeT-u9jCJpk3vtt1qrVasfnU"
 print(f"Testing Google API key: {api_key}")
 
 # Test the API key with a simple Gemini API request
-url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key={api_key}"
+url = f"https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent?key={api_key}"
 
 payload = {
     "contents": [
