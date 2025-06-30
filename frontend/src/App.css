@@ -1,38 +1,209 @@
-.App {
-    text-align: center;
+/* Custom styles for Video Chat AI */
+
+.container {
+  max-width: 1200px;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Smooth scrolling for chat history */
+.overflow-y-auto {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.overflow-y-auto::-webkit-scrollbar {
+  width: 6px;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(156, 163, 175, 0.7);
+}
+
+/* Animated gradient background */
+.bg-gradient-to-br {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
+  min-height: 100vh;
+}
+
+/* File input styling */
+input[type="file"] {
+  file-selector-button: {
+    background: #3b82f6;
     color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    margin-right: 1rem;
+  }
 }
 
-.App-link {
-    color: #61dafb;
+input[type="file"]::-webkit-file-upload-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  margin-right: 1rem;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+input[type="file"]::-webkit-file-upload-button:hover {
+  background: #2563eb;
+}
+
+/* Chat message animations */
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+/* Button hover effects */
+.transition-colors {
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Status badge animations */
+.px-2.py-1.text-xs.rounded-full {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Loading animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .grid-cols-1.lg\:grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .text-4xl {
+    font-size: 2.5rem;
+  }
+  
+  .text-xl {
+    font-size: 1.125rem;
+  }
+}
+
+/* Video selection highlight */
+.border-blue-500.bg-blue-50 {
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Chat input focus */
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Smooth transitions */
+* {
+  transition: box-shadow 0.15s ease-in-out;
+}
+
+/* Typography improvements */
+.whitespace-pre-wrap {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Button disabled state */
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Custom scrollbar for video list */
+.max-h-96 {
+  max-height: 24rem;
+}
+
+/* Enhanced shadow effects */
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Hover effects for interactive elements */
+.cursor-pointer:hover {
+  transform: translateY(-1px);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Status indicator styling */
+.bg-green-100 { background-color: #dcfce7; }
+.text-green-800 { color: #166534; }
+.bg-yellow-100 { background-color: #fef3c7; }
+.text-yellow-800 { color: #92400e; }
+.bg-red-100 { background-color: #fee2e2; }
+.text-red-800 { color: #991b1b; }
+
+/* Chat bubble styling */
+.bg-blue-100 {
+  background-color: #dbeafe;
+  border-left: 4px solid #3b82f6;
+}
+
+.bg-gray-100 {
+  background-color: #f3f4f6;
+  border-left: 4px solid #6b7280;
+}
+
+/* Improved focus states */
+.focus\:ring-2:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+
+/* Loading state improvements */
+.disabled\:bg-gray-400:disabled {
+  background-color: #9ca3af;
+  pointer-events: none;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .px-4 {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  .text-4xl {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+  
+  .p-6 {
+    padding: 1rem;
+  }
+  
+  .space-x-4 > * + * {
+    margin-left: 0.75rem;
+  }
 }
