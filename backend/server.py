@@ -202,7 +202,7 @@ Based on this video analysis, answer user questions about the video content. Be 
             api_key=GOOGLE_API_KEY,
             session_id=f"chat-{session_id}",
             system_message=system_message
-        ).with_model("gemini", "gemini-2.5-pro-preview-05-06")
+        ).with_model("gemini", "gemini-2.5-pro")
         
         # Send user message
         user_message = UserMessage(text=chat_request.message)
