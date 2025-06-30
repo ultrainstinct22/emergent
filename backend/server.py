@@ -41,6 +41,7 @@ UPLOAD_DIR.mkdir(exist_ok=True)
 
 # Google API key
 GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
+logger.info(f"Google API Key: {GOOGLE_API_KEY}")
 
 class ChatMessage(BaseModel):
     video_id: str
