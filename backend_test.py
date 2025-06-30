@@ -202,7 +202,7 @@ def main():
     
     if not test_video_path or not Path(test_video_path).exists():
         print("❌ No test video available, stopping upload test")
-        print("📊 Tests passed: {tester.tests_passed}/{tester.tests_run}")
+        print(f"📊 Tests passed: {tester.tests_passed}/{tester.tests_run}")
         return 1
     
     # Test uploading a video
