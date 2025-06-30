@@ -7,32 +7,19 @@ api_key = "AIzaSyAs-YV7aY6FeT-u9jCJpk3vtt1qrVasfnU"
 
 print(f"Testing Google API key: {api_key}")
 
-# Test the API key with a simple Gemini API request
-url = f"https://generativelanguage.googleapis.com/v1/models/gemini-2.5-pro-preview-05-06:generateContent?key={api_key}"
-
-payload = {
-    "contents": [
-        {
-            "parts": [
-                {
-                    "text": "Hello, can you verify that this API key is working?"
-                }
-            ]
-        }
-    ]
-}
-
-headers = {
-    "Content-Type": "application/json"
-}
+# List available models
+list_models_url = f"https://generativelanguage.googleapis.com/v1/models?key={api_key}"
 
 try:
-    response = requests.post(url, headers=headers, data=json.dumps(payload))
+    response = requests.get(list_models_url)
     print(f"Status code: {response.status_code}")
     
     if response.status_code == 200:
         print("API key is valid!")
-        print(json.dumps(response.json(), indent=2))
+        models = response.json().get("models", [])
+        print(f"Available models: {len(models)}")
+        for model in models:
+            print(f"- {model.get('name')}")
     else:
         print("API key is invalid or has issues.")
         print(response.text)
